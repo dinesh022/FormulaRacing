@@ -15,6 +15,7 @@ public class Supplier {
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private int sid;
 	private String supplierName;
+	private String supplierAddress;
 	@OneToMany(mappedBy = "supplier", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Supplier>supplier;
 	public int getSid() {
@@ -28,6 +29,13 @@ public class Supplier {
 	}
 	public void setSupplierName(String supplierName) {
 		this.supplierName = supplierName;
+	}
+	
+	public String getSupplierAddress() {
+		return supplierAddress;
+	}
+	public void setSupplierAddress(String supplierAddress) {
+		this.supplierAddress = supplierAddress;
 	}
 	public List<Supplier> getSupplier() {
 		return supplier;

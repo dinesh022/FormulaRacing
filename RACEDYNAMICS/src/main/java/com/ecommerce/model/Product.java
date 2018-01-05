@@ -28,7 +28,11 @@ public class Product {
   @JoinColumn(name="sid", updatable = false, insertable = false, nullable = false)
   private Supplier supplier;
 
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name="cid", updatable = false, insertable = false, nullable = false)
+  private Category category;
 
+  
 public String getProductId() {
 	return productId;
 }
