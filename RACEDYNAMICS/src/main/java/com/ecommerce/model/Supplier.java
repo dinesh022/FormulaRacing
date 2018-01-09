@@ -1,8 +1,12 @@
 package com.ecommerce.model;
 
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,36 +16,36 @@ import javax.persistence.OneToMany;
 @Entity
 public class Supplier {
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue
+    @Column(name="sid")
 	private int sid;
 	private String supplierName;
-	private String supplierAddress;
-	@OneToMany(mappedBy = "supplier", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Supplier>supplier;
-	public int getSid() {
-		return sid;
-	}
-	public void setSid(int sid) {
-		this.sid = sid;
-	}
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "supplier", cascade = CascadeType.ALL)
+	private Set<Product>products= new HashSet<Product>();
+	
+	
 	public String getSupplierName() {
 		return supplierName;
 	}
 	public void setSupplierName(String supplierName) {
 		this.supplierName = supplierName;
 	}
+	public Set<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+	public int getSid() {
+		return sid;
+	}
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+
 	
-	public String getSupplierAddress() {
-		return supplierAddress;
-	}
-	public void setSupplierAddress(String supplierAddress) {
-		this.supplierAddress = supplierAddress;
-	}
-	public List<Supplier> getSupplier() {
-		return supplier;
-	}
-	public void setsupplier(List<Supplier> supplier) {
-		this.supplier = supplier;
-	}
+	
+	
 
 }

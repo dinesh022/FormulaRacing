@@ -19,25 +19,30 @@
              <thead>
              <tr class="bg-success">
                 
-               
-                <th>Supplier Name</th>
+              <th>Supplier Name</th>
+              <th>Supplier ID</th>
+                
                
              </tr>
              </thead>   
             <c:forEach items="${listsupplier}" var="supplier">
              <tr>
-                
+               
                <td>${supplier.supplierName}</td>
-             
+               <td>${supplier.sid}</td>
+              
+            
 			   
                <td>
-                     <a href="<spring:url value="/supplieradmin/supplierInventory/deleteSupplier/${supplier.suppliersid}"/>"
+                     <a href="<spring:url value="/admin/supplierInventory/deleteSupplier/${supplier.sid}"/>"
                  ><span class="glyphicon glyphicon-remove"></span></a>
+                     <a href="<spring:url value="/admin/categoryInventory/editCategory/${supplier.sid}"/>"
+                 ><span class="glyphicon glyphicon-pencil"></span></a>
                  </td>
              </tr> 
             </c:forEach>   
         </table>
-     <a href= "<spring:url value="/supplieradmin/supplierInventory/AddSupplier"/>"> <button type="button" class="btn btn-success">Add Supplier</button></a>
+     <a href= "<spring:url value="/admin/supplierInventory/AddSupplier"/>"> <button type="button" class="btn btn-success">Add Supplier</button></a>
 </div>
 </div>
 <%@include file="/WEB-INF/views/footer.jsp" %>

@@ -18,26 +18,32 @@
         <table class="table table-striped table-hover">
              <thead>
              <tr class="bg-success">
-                
-               
+              
+                <th>Category Id</th>
                 <th>Category Name</th>
+                
+                
                 
              </tr>
              </thead>   
             <c:forEach items="${listcategory}" var="category">
              <tr>
                 
-               <td>${category.categoryName}</td>
-              
-			   
-               <td>
-                     <a href="<spring:url value="/categoryadmin/categoryInventory/deleteCategory/${category.categorycid}"/>"
+                 <td>${category.cid}</td>
+                 <td>${category.categoryName}</td>
+                 
+                
+                 
+                 <td>
+                     <a href="<spring:url value="/admin/categoryInventory/deleteCategory/${category.cid}"/>"
                  ><span class="glyphicon glyphicon-remove"></span></a>
+                     <a href="<spring:url value="/admin/categoryInventory/editCategory/${category.cid}"/>"
+                 ><span class="glyphicon glyphicon-pencil"></span></a>
                  </td>
              </tr> 
             </c:forEach>   
         </table>
-     <a href= "<spring:url value="/categoryadmin/categoryInventory/AddCategory"/>"> <button type="button" class="btn btn-success">Add Category</button></a>
+     <a href= "<spring:url value="/admin/categoryInventory/AddCategory"/>"> <button type="button" class="btn btn-success">Add Category</button></a>
 </div>
 </div>
 <%@include file="/WEB-INF/views/footer.jsp" %>

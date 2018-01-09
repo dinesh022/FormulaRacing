@@ -12,8 +12,18 @@
             
             <p class="lead">Adminstrator Page</p> 
         </div>
+        
+        <c:if test = "${pageContext.request.userPrincipal.name !=null}">
+           <h2>
+               Welcome:${pageContext.request.userPrincipal.name} | <a href="<c:url
+               value="/j_spring_security_logout"/>">Logout</a>
+           </h2>
+           </c:if>
+        
         <h3>
            <a href="admin/productInventory">product Inventory</a>
+           <a href="admin/categoryInventory">category Inventory</a>
+           <a href="admin/supplierInventory">supplier Inventory</a>
            
         </h3>
      <p>Here you can do the CRUD operations!</p>   

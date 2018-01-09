@@ -2,6 +2,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "form" uri = "http://www.springframework.org/tags/form" %>
+<%@ taglib prefix = "spring" uri = "http://www.springframework.org/tags" %>
 
 <html>
     <head>
@@ -12,39 +14,17 @@
         <div class="site header container">
            <div class="row justify-content-between"> 
              <div class="col-8 offset-2 col-lg-4 offset-lg-0">
-             <img src="<c:url value="/resources/Logo.png"/>class="img-fluid mx auto d-block">
+             <img src="<c:url value="/resources/images/Logo.png"/>class="img-fluid mx auto d-block"></img>
         </div>
         <ul class="nav navbar-nav navbar-right">
-                <li><a  href="#">Home</a></li>
-                <li><a  href="productList">Products</a></li>
+                <li ><a  href="<c:url value="/" />">Home</a></li>
+                <li><a  href="<c:url value="/productList"/>">Products</a></li>
                 <li><a  href="Register">Register</a></li>
-                <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin List <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-        
-            <li><a href="viewsupplier">Supplier List</a></li>
-        
-            <li><a href="viewcategory">Category List</a></li>
-            <li><a href="viewproduct">Product List</a></li>
-          </ul>
-        </li>
-				<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-        
-            <li><a href="supplier">Supplier</a></li>
-        
-            <li><a href="category">Category</a></li>
-            <li><a href="productList">Product</a></li>
-          </ul>
-        </li>
+                <li><a href="<c:url value="/admin"/>">Admin</a></li>
                 </ul>
-                
-                
-                
         </div>
-     </div>
-     </nav>
+        </div>
+        </nav>
      	
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -58,14 +38,14 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="<c:url value="/resources/1.jpg"/> alt="first">
+      <img src="<c:url value="/resources/images/1.jpg"/> alt="first">
     </div>
     <div class="item">
-      <img src="<c:url value="/resources/2.jpg"/> alt="second">
+      <img src="<c:url value="/resources/images/2.jpg"/> alt="second">
     </div>
 
     <div class="item">
-     <img src="<c:url value="/resources/3.jpg"/> alt="third">
+     <img src="<c:url value="/resources/images/3.jpg"/> alt="third">
     </div>
   </div>
   <!-- Left and right controls -->

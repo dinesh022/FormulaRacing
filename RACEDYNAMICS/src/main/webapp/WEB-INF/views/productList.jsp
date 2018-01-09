@@ -5,6 +5,7 @@
 <%@ taglib prefix = "form" uri = "http://www.springframework.org/tags/form" %>
 
 
+
 <div class="container wrapper">
      <div class="container">
         <div class="page-header">
@@ -18,7 +19,7 @@
              <tr class="bg-success">
                 <th>Photo Image</th>
                 <th>Product Name</th>
-                <th>Category</th>
+              
                 <th>Condition</th>
                 <th>Price</th>
                
@@ -28,7 +29,7 @@
              <tr>
                  <td><img src="#" alt="image"/></td>
                  <td>${product.productName}</td>
-                 <td>${product.productCategory}</td>
+                 
                  <td>${product.productCondition}</td>
                  <td>${product.productPrice}INR</td>
                  

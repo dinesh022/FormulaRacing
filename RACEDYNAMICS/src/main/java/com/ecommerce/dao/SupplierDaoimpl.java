@@ -40,6 +40,7 @@ public class SupplierDaoimpl implements SupplierDao {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from Supplier");
+		@SuppressWarnings("unchecked")
 		List<Supplier> listsupplier = query.list();
 		session.flush();
 		return listsupplier;

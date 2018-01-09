@@ -22,12 +22,18 @@ private SessionFactory sessionFactory;
 		session.saveOrUpdate(product);
 		session.flush();
 	
-		
+		}
 
+	public void editProduct(Product product) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(product);
+		session.flush();
 	}
-
+	
+	
 	@Override
-	public Product getProductById(String id) {
+	public Product getProductById(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		Product product = (Product) session.get(Product.class,id);
@@ -40,6 +46,7 @@ private SessionFactory sessionFactory;
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from Product");
+		@SuppressWarnings("unchecked")
 		List<Product> products = query.list();
 		session.flush();
 		return products;
@@ -47,7 +54,7 @@ private SessionFactory sessionFactory;
 		}
 
 	@Override
-	public void deleteProduct(String id) {
+	public void deleteProduct(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(getProductById(id));

@@ -39,6 +39,7 @@ public class CategoryDaoimpl implements CategoryDao {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from Category");
+		@SuppressWarnings("unchecked")
 		List<Category> listcategory = query.list();
 		session.flush();
 		return listcategory;

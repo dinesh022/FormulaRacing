@@ -13,16 +13,22 @@
             <p class="lead">Fill the below information to add the supplier</p> 
         </div>
         
-        <form:form action="${pageContext.request.contextPath}/supplieradmin/supplierInventory/AddSupplier" method="post" commandName="supplier">
+        <form:form action="${pageContext.request.contextPath}/admin/supplierInventory/AddSupplier" method="post" commandName="supplier">
+        
+     
+        
+        
         <div class="form-group">
              <label for="name">Name</label>
            <form:input path="supplierName" id="name" class="form-control"/>
+             
         </div>
+        
+        
        
-    
-       <br><br>
+    <br><br>
        <input type="submit"  value="submit"  class = "btn btn-default">
-       <a href = "/supplieradmin/supplierInventory" class= "btn btn-default">cancel</a>
+       <a href = "<c:url value="/admin/supplierInventory"/>" class="btn btn-default">Cancel</a>
        
         </form:form>
      </div>

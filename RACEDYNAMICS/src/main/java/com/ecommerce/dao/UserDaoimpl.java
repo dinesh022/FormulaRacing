@@ -30,6 +30,7 @@ public class UserDaoimpl implements UserDao {
 			// TODO Auto-generated method stub
 			Session session = sessionFactory.getCurrentSession();	
 			Query query = session.createQuery("from Users");
+			@SuppressWarnings("unchecked")
 			List<Users>users = query.list();
 			session.flush();
 			return users;

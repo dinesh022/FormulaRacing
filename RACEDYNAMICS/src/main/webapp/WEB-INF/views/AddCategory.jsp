@@ -10,24 +10,27 @@
         <div class="page-header">
             <h1>Add Category</h1>
             
-            <p class="lead">Fill the below information to add the category</p> 
+            <p class="lead">Fill the below information to add the Category</p> 
         </div>
         
-        <form:form action="${pageContext.request.contextPath}/categoryadmin/categoryInventory/AddCategory" method="post" commandName="category">
+        <form:form action="${pageContext.request.contextPath}/admin/categoryInventory/AddCategory" method="post" commandName="category"
+        enctype = "multipart/form-data">
+        
+        
         <div class="form-group">
              <label for="name">Name</label>
+            
            <form:input path="categoryName" id="name" class="form-control"/>
         </div>
-       
         
-      
-       
+        
+        
        <br><br>
        <input type="submit"  value="submit"  class = "btn btn-default">
-       <a href = "/categoryadmin/categoryInventory" class= "btn btn-default">cancel</a>
+       <a href = "<c:url value="/admin/categoryInventory"/>" class="btn btn-default">Cancel</a>
        
         </form:form>
      </div>
 </div>   
         
-        <%@include file="/WEB-INF/views/footer.jsp" %>
+<%@include file="/WEB-INF/views/footer.jsp" %>

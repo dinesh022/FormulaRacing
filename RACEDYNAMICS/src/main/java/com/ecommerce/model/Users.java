@@ -16,6 +16,8 @@ public class Users {
 	private String email;
 	private String address;
 	private String phone;
+	private boolean enabled;
+	private String role;
 	public int getId() {
 		return id;
 	}
@@ -52,7 +54,17 @@ public class Users {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	
 }
-
-
