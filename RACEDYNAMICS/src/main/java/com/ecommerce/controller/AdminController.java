@@ -68,6 +68,7 @@ public class AdminController {
 	    public String productInventory(Model model){
 	    	List<Product>products = productDao.getAllProducts();
 	    	model.addAttribute("products", products);
+	    	
 	    	return "productInventory";
 	    }
 
@@ -77,7 +78,12 @@ public class AdminController {
 	    	
 	    	product.setProductCondition("New");
 	    	product.setProductStatus("Available");
-	    	
+	    	List<Category>listcategory = categoryDao.getAllCategory();
+	    	model.addAttribute("listcategory", listcategory);
+	    	List<Supplier>listsupplier= supplierDao.getAllSupplier();
+	    	model.addAttribute("listsupplier", listsupplier);
+	    
+	    
 	    	model.addAttribute("product",product);
 	    	return "AddProduct";
 	    }
@@ -153,7 +159,7 @@ public class AdminController {
 	    @RequestMapping("/admin/categoryInventory")
 	    public String categoryInventory(Model model){
 	    	List<Category>listcategory = categoryDao.getAllCategory();
-	    	model.addAttribute("category", listcategory);
+	    	model.addAttribute("listcategory", listcategory);
 	    	return "categoryInventory";
 	    }
 
@@ -192,7 +198,7 @@ public class AdminController {
 	    @RequestMapping("/admin/supplierInventory")
 	    public String supplierInventory(Model model){
 	    	List<Supplier>listsupplier = supplierDao.getAllSupplier();
-	    	model.addAttribute("supplier", listsupplier);
+	    	model.addAttribute("listsupplier", listsupplier);
 	    	return "supplierInventory";
 	    }
 

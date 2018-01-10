@@ -8,30 +8,29 @@
 <div class="container wrapper">
      <div class="container">
         <div class="page-header">
-            <h1>Add Product</h1>
+            <h1>Edit Product</h1>
             
-            <p class="lead">Fill the below information to add the product</p> 
+            <p class="lead">Fill the below information to edit the product</p> 
         </div>
         
-        <form:form action="${pageContext.request.contextPath}/admin/productInventory/AddProduct" method="post" commandName="product"
+        <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post" commandName="product"
         enctype = "multipart/form-data">
+        <form:hidden path="productId" value="${product.productId}"/>
         <div class="form-group">
              <label for="name">Name</label>
-             <form:errors path="productName" cssStyle="color:#ff0000"/>
-           <form:input path="productName" id="name" class="form-control"/>
+           <form:input path="productName" id="name" class="form-control" value="${product.productName}"/>
         </div>
         
-        
+       
        
        <div class="form-group">
              <label for="description">Description</label>
-           <form:textarea path="productDescription" id="description" class="form-control"/>
+           <form:textarea path="productDescription" id="description" class="form-control" value="${product.productDescription}"/>
         </div>
        
         <div class="form-group">
              <label for="price">Price</label>
-              <form:errors path="productPrice" cssStyle="color:#ff0000"/>
-           <form:input path="productPrice" id="price" class="form-control"/>
+           <form:input path="productPrice" id="price" class="form-control" value="${product.productPrice}"/>
         </div>
        
      <div class="form-group">
@@ -53,51 +52,18 @@
        
        <div class="form-group">
             <label for = "unitinstock">UnitInStock</label>
-            <form:errors path="unitinStock" cssStyle="color:#ff0000"/>
-            <form:input path="unitinStock" id="unitinstock" class="form-Control"/>
+            <form:input path="unitinStock" id="unitinstock" class="form-Control" value="${product.unitinStock}"/>
        </div>
        
        <div class="form-group">
             <label for = "manufacturer">Manufacturer</label>
-            <form:input path="productManufacturer" id="manufacturer" class="form-Control"/>
+            <form:input path="productManufacturer" id="manufacturer" class="form-Control" value="${product.productManufacturer}"/>
        </div>
-       
- 
-       
        
        <div class="form-group">
             <label class = "control-label" for="productImage" >Upload picture</label>
             <form:input path="productImage" id="productImage" type="file"  class="form:input-large"/>
        </div>
-       
-       
-       
-	
-	<div class="form-group">
-		<label for="Product Category" class="col-xs-4 control-label">Product Category</label>
-				
-	<form:select class="form-control" path="cid" required="true">
-	<c:forEach items="${listcategory}" var="category">
-	<form:option class="form-control" value="${category.cid}">${category.categoryName}	     </form:option>
-	</c:forEach>
-	</form:select>
-			</div>
-	
-	<!--  List of Supplier  -->
-	
-		<div class="form-group">
-		<label for="Product Supplier" class="col-xs-4 control-label">Product Supplier</label>
-	<form:select class="form-control" path="sid" required="true">
-	<c:forEach items="${listsupplier}" var="supplier">
-	<form:option class="form-control" value="${supplier.sid}">${supplier.supplierName}	     </form:option>
-	</c:forEach>
-	</form:select>
-		</div>
-	
-       
-       
-       
-       
        
        
        <br><br>

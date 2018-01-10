@@ -42,6 +42,8 @@
              </tr> 
             </c:forEach>   
         </table>
+        
+        
      <a href= "<spring:url value="/admin/supplierInventory/AddSupplier"/>"> <button type="button" class="btn btn-success">Add Supplier</button></a>
 </div>
 </div>

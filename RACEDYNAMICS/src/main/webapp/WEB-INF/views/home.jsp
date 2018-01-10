@@ -17,11 +17,22 @@
              <img src="<c:url value="/resources/images/Logo.png"/>class="img-fluid mx auto d-block"></img>
         </div>
         <ul class="nav navbar-nav navbar-right">
-                <li ><a  href="<c:url value="/" />">Home</a></li>
-                <li><a  href="<c:url value="/productList"/>">Products</a></li>
-                <li><a  href="Register">Register</a></li>
+        <c:if test="${pageContext.request.userPrincipal.name !=null}">
+                <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
+                <li><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
+        </c:if>
+        <c:if test="${pageContext.request.userPrincipal.name == 'darkknight@gmail.com'}">
                 <li><a href="<c:url value="/admin"/>">Admin</a></li>
+        </c:if>       
+                <li><a  href="<c:url value="/" />">Home</a></li>
+                <li><a  href="<c:url value="/productList"/>">Products</a></li>
+                
+                <c:if test="${pageContext.request.userPrincipal.name == null}">
+                <li><a  href="Register">Register</a></li>
+                <li><a href="<c:url value="/login"/>">Login</a></li>
+                </c:if>
                 </ul>
+                
         </div>
         </div>
         </nav>

@@ -27,7 +27,7 @@
         
        
     <br><br>
-       <input type="submit"  value="submit"  class = "btn btn-default">
+       <input type="submit"  value="Insert"  class = "btn btn-default">
        <a href = "<c:url value="/admin/supplierInventory"/>" class="btn btn-default">Cancel</a>
        
         </form:form>

@@ -7,69 +7,48 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<c:url var="actionUrl" value="saveUser" />
-
-<form:form  commandName="user" method="post" action="${actionUrl }" class="form-horizontal" >
-
-
-	<div class="form-group">
-		<label for="First Name" class="col-xs-4 control-label">First Name</label>
-		<div class="col-xs-4">
-			<form:input name="id" path="firstName" placeholder="User First Name" class="form-control" />
-		</div>
-	</div>
-	
-	
-	
-	
-	<div class="form-group">
-		<label for="First Name" class="col-xs-4 control-label">Last Name</label>
-		<div class="col-xs-4">
-			<form:input name="id" path="lastName" placeholder="User First Name" class="form-control" />
-		</div>
-	</div>
-	
-	
-	
-
-	<div class="form-group">
-		<label for="Supplier Name" class="col-xs-4 control-label">Email</label>
-		<div class="col-xs-4">
-			<form:input name="id" path="email" placeholder="User Name" class="form-control" />
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label for="code" class="col-xs-4 control-label">Password</label>
-		<div class="col-xs-4">
-			<form:input name="password"  path="password" placeholder="User Password" class="form-control" />
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label for="code" class="col-xs-4 control-label">Phone Number</label>
-		<div class="col-xs-4">
-			<form:input name="phone"  path="phone" placeholder="User Phone" class="form-control" />
-		</div>
-	</div>
-
-
-
-	<div class="form-group">
-	<label for="code" class="col-xs-4 control-label"></label>
-		
-		<div class="col-xs-4">
-		
-			
-	
-		<input type="submit" value="Add User" id="btn-add" class="btn btn-primary" >
-	
-	
-
-		
-		</div>
-	</div>
-</form:form>
-
-
+<div class="container wrapper">
+     <div class="container">
+        <div class="page-header">
+            <h1>Register Customer</h1>
+            
+            <p class="lead">Fill the below information to get registered</p> 
+        </div>
+        
+        <form:form action="saveCustomer" method="post" modelAttribute="customer">
+        <h3>Basic info</h3>
+        
+        <div class = "form-group">
+           <label for = "name">Name</label>
+           <form:input path="customerName" id="name" class="form-Control"/>
+        </div>
+        
+        <div class = "form-group">
+           <label for = "email">UserEmail</label>
+           <form:input path="useremail" id="useremail" class="form-Control"/>
+        </div>
+        
+         <div class = "form-group">
+           <label for = "phone">Phone</label>
+           <form:input path="CustomerPhone" id="phone" class="form-Control"/>
+        </div>
+        
+        <div class = "form-group">
+           <label for = "password">Password</label>
+           <form:input path="password" id="password" class="form-Control"/>
+        </div>
+        
+        <div class = "form-group">
+           <label for = "billingAddress">Billing Address</label>
+           <form:input path="billingAddress" id="billingAddress" class="form-Control"/>
+        </div>
+       
+       <br><br>
+       <input type="submit"  value="submit"  class = "btn btn-default">
+       <a href = "<c:url value="/"/>" class="btn btn-default">Cancel</a>
+       
+        </form:form>
+     </div>
+</div>   
+        
 <%@include file="/WEB-INF/views/footer.jsp" %>

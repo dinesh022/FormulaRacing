@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
-
+import com.ecommerce.dao.CustomerDao;
 import com.ecommerce.dao.UserDao;
-
-
-
+import com.ecommerce.model.Customer;
 import com.ecommerce.model.Users;
 
 
@@ -32,38 +31,30 @@ public class HomeController {
 	
 
 	 @Autowired
-	 private UserDao userDao;
+	 private CustomerDao customerDao;
 	 
-
-	 
-
-	 
-	 
-
-		@RequestMapping("/")
+        @RequestMapping("/")
 		public String home(){
 			return "home";
 		}
 		
+		@RequestMapping("/Register")
+		public String CustomerRegistration(Model model){
+			Customer customer = new Customer();
+			model.addAttribute("customer",customer);
+			return "Register";
+		}
 		
-		
+		@RequestMapping(value="saveCustomer", method=RequestMethod.POST)
+		public String CustomerRegistrationPost(@ModelAttribute("customer")Customer customer){
+			customer.setEnabled(true);
+			customerDao.addCustomer(customer);
+			return "redirect:/";
+		}
 	    
 		
 		
-		@RequestMapping(value="/Register", method=RequestMethod.GET)
-		public String  toregister(Model  m)
-		{
-			m.addAttribute("users",new Users()) ;
-			 
-			 return "Register";
-	}
-		
-		@RequestMapping(value="saveUser", method=RequestMethod.POST)
-		public String createUser(@ModelAttribute("users") Users users){
-			userDao.saveUser(users);
-			return "redirect:/";
-			
-		}	
+
 		
 	
 	

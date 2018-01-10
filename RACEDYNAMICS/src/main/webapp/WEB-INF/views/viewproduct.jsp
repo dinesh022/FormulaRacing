@@ -21,9 +21,14 @@
                   <h3>${product.productName}</h3>
                   <p>${product.productDescription}</p>
                   <p>${product.productManufacturer}</p>
-                  <p>${product.productCategory}</p>
                   <p>${product.productCondition}</p>
                   <p>${product.productPrice}INR</p>
+             <form action="addToCart/${customerId}/${product.productId}">
+			<input type="submit" value="Add to Cart" class="btn btn-primary">
+
+						</form>
+
+
              </div>
              
              </div>       
