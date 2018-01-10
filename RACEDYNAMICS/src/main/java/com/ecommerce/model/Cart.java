@@ -9,7 +9,7 @@ public class Cart {
 
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	private int cartId;
+	private int id;
 	private int productId;
 	private String productName;
 	private double productPrice;
@@ -17,11 +17,14 @@ public class Cart {
 	private double Total;
 	private String status;
 	private int customerId;
-	public int getCartId() {
-		return cartId;
+	
+	
+	
+	public int getId() {
+		return id;
 	}
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public int getProductId() {
 		return productId;

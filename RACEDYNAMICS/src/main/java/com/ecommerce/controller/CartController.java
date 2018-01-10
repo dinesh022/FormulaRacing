@@ -30,7 +30,7 @@ import com.ecommerce.model.Product;
 
 		
 		
-	    @RequestMapping(value="addToCart/{id}")
+	    @RequestMapping(value="addToCart/}")
 	    public String addProductToCart(@PathVariable("id") int id, HttpSession session,Model model,RedirectAttributes attributes)
 	    {
 	    	int customerId = (Integer) session.getAttribute("customerId");
