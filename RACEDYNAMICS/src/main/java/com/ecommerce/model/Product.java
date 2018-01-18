@@ -2,6 +2,7 @@ package com.ecommerce.model;
 
 
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 
@@ -16,9 +18,16 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 
+
+
 @Entity
-public class Product  {
+public class Product implements Serializable {
     
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6151716826336633616L;
+
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private int productId;
@@ -48,6 +57,9 @@ public class Product  {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "sid", nullable = false, updatable = false, insertable = false)
 	private Supplier supplier;
+
+	
+	
 
   
 public int getProductId() {
@@ -133,6 +145,7 @@ public MultipartFile getProductImage() {
 public void setProductImage(MultipartFile productImage) {
 	this.productImage = productImage;
 }
+
 
 
 

@@ -65,6 +65,27 @@
             <form:input path="productImage" id="productImage" type="file"  class="form:input-large"/>
        </div>
        
+       <div class="form-group">
+		<label for="Product Category" class="col-xs-4 control-label">Product Category</label>
+				
+	<form:select class="form-control" path="cid" required="true">
+	<c:forEach items="${listcategory}" var="category">
+	<form:option class="form-control" value="${category.cid}">${category.categoryName}	     </form:option>
+	</c:forEach>
+	</form:select>
+			</div>
+	
+	<!--  List of Supplier  -->
+	
+		<div class="form-group">
+		<label for="Product Supplier" class="col-xs-4 control-label">Product Supplier</label>
+	<form:select class="form-control" path="sid" required="true">
+	<c:forEach items="${listsupplier}" var="supplier">
+	<form:option class="form-control" value="${supplier.sid}">${supplier.supplierName}	     </form:option>
+	</c:forEach>
+	</form:select>
+		</div>
+       
        
        <br><br>
        <input type="submit"  value="submit"  class = "btn btn-default">

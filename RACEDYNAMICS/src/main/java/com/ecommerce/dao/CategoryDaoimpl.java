@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ecommerce.model.Category;
+import com.ecommerce.model.Supplier;
 
 @Repository
 @Transactional
@@ -33,7 +34,16 @@ public class CategoryDaoimpl implements CategoryDao {
 		Category category = (Category) session.get(Category.class,cid);
 		return category;
 	}
-
+    
+	
+	public void editCategory(Category category) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(category);
+		session.flush();
+	}
+	
+	
 	@Override
 	public List<Category> getAllCategory() {
 		// TODO Auto-generated method stub

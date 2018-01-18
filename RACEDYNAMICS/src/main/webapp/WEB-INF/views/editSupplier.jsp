@@ -8,28 +8,26 @@
 <div class="container wrapper">
      <div class="container">
         <div class="page-header">
-            <h1>Add Category</h1>
+            <h1>Edit Supplier</h1>
             
-            <p class="lead">Fill the below information to add the Category</p> 
+            <p class="lead">Fill the below information to edit the supplier</p> 
         </div>
+        <form:form action="${pageContext.request.contextPath}/admin/supplierInventory/editSupplier" method="post" commandName="supplier">
+        <form:hidden path="sid" value="${supplier.sid}"/>
         
-        <form:form action="${pageContext.request.contextPath}/admin/categoryInventory/AddCategory" method="post" commandName="category">
-        
-        
-        <div class="form-group">
+         <div class="form-group">
              <label for="name">Name</label>
-            
-           <form:input path="categoryName" id="name" class="form-control"/>
+           <form:input path="supplierName" id="name" class="form-control" value="${supplier.supplierName}"/>
+             
         </div>
         
-        
-        
-       <br><br>
+        <br><br>
        <input type="submit"  value="submit"  class = "btn btn-default">
-       <a href = "<c:url value="/admin/categoryInventory"/>" class="btn btn-default">Cancel</a>
+       <a href = "<c:url value="/admin/supplierInventory"/>" class="btn btn-default">Cancel</a>
        
         </form:form>
      </div>
 </div>   
         
-<%@include file="/WEB-INF/views/footer.jsp" %>
+        <%@include file="/WEB-INF/views/footer.jsp" %>    
+        

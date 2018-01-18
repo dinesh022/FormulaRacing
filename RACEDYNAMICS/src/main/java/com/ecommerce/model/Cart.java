@@ -1,74 +1,58 @@
 package com.ecommerce.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Entity
 public class Cart {
-
+	
+	
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue
 	private int id;
-	private int productId;
-	private String productName;
-	private double productPrice;
-	private int productQuantity;
-	private double Total;
-	private String status;
-	private int customerId;
-	
-	
-	
+	private int pid;
+	private String pname;
+	private double price;
+	private int quantity;
+	private String useremail;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getProductId() {
-		return productId;
+	public int getPid() {
+		return pid;
 	}
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
-	public String getProductName() {
-		return productName;
+	public String getPname() {
+		return pname;
 	}
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setPname(String pname) {
+		this.pname = pname;
 	}
-	public double getProductPrice() {
-		return productPrice;
+	public double getPrice() {
+		return price;
 	}
-	public void setProductPrice(double productPrice) {
-		this.productPrice = productPrice;
+	public void setPrice(double price) {
+		this.price = price;
 	}
-	public int getProductQuantity() {
-		return productQuantity;
+	public int getQuantity() {
+		return quantity;
 	}
-	public void setProductQuantity(int productQuantity) {
-		this.productQuantity = productQuantity;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
-	public double getTotal() {
-		return Total;
+	public String getUseremail() {
+		return useremail;
 	}
-	public void setTotal(double total) {
-		Total = total;
+	public void setUseremail(String useremail) {
+		this.useremail = useremail;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	public int getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}	
-
-
+	
+	
+	
+	
 
 }

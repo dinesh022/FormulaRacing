@@ -8,18 +8,18 @@
 <div class="container wrapper">
      <div class="container">
         <div class="page-header">
-            <h1>Add Category</h1>
+            <h1>Edit Category</h1>
             
-            <p class="lead">Fill the below information to add the Category</p> 
+            <p class="lead">Fill the below information to edit the Category</p> 
         </div>
         
-        <form:form action="${pageContext.request.contextPath}/admin/categoryInventory/AddCategory" method="post" commandName="category">
-        
+        <form:form action="${pageContext.request.contextPath}/admin/categoryInventory/editCategory" method="post" commandName="category">
+         <form:hidden path="cid" value="${category.cid}"/>
         
         <div class="form-group">
              <label for="name">Name</label>
             
-           <form:input path="categoryName" id="name" class="form-control"/>
+           <form:input path="categoryName" id="name" class="form-control" value="${category.categoryName}"/>
         </div>
         
         

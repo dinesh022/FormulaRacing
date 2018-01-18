@@ -36,7 +36,7 @@
                <td>
                      <a href="<spring:url value="/admin/supplierInventory/deleteSupplier/${supplier.sid}"/>"
                  ><span class="glyphicon glyphicon-remove"></span></a>
-                     <a href="<spring:url value="/admin/categoryInventory/editCategory/${supplier.sid}"/>"
+                     <a href="<spring:url value="/admin/supplierInventory/editSupplier/${supplier.sid}"/>"
                  ><span class="glyphicon glyphicon-pencil"></span></a>
                  </td>
              </tr> 

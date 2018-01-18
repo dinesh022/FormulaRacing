@@ -14,6 +14,8 @@ public class Authorities {
 	private int authoritiesId;
 	private String useremail;
 	private String authority;
+	
+	
 	public int getAuthoritiesId() {
 		return authoritiesId;
 	}

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ecommerce.model.Category;
 import com.ecommerce.model.Users;
 @Repository
 @Transactional
@@ -36,4 +37,23 @@ public class UserDaoimpl implements UserDao {
 			return users;
 			
 		}
-}
+
+		@Override
+		public Users getUserById(int id) {
+			Session session = sessionFactory.getCurrentSession();
+			Users user = (Users) session.get(Users.class,id);
+			System.out.println("Customer ID:"+user.getCustomerId());
+			return user;
+		}
+		
+		@Override
+		public Users getUserByeName(String username){
+			Session session = sessionFactory.getCurrentSession();
+			Users user = (Users) session.get(Users.class,username);
+			System.out.println("User Email:"+user.getUseremail());
+			return user;
+		}
+		
+	
+		
+		}

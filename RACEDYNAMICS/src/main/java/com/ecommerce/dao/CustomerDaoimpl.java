@@ -54,4 +54,6 @@ public class CustomerDaoimpl implements CustomerDao {
 		return listcustomer;
 	}
 	
+
+	
 }

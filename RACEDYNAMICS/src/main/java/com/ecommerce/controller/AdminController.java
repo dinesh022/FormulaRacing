@@ -2,6 +2,7 @@ package com.ecommerce.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -40,11 +41,13 @@ public class AdminController {
 	 
 	 @Autowired
 	 private CategoryDao categoryDao;
+
+	private int id;
 	 
 	 
 	 // product controller
 	 
-	 @RequestMapping("/productList")
+	 @RequestMapping(value="/productList",method=RequestMethod.GET)
 		public String getProducts(Model model){
 			List<Product>products = productDao.getAllProducts();
 			model.addAttribute("products", products);
@@ -52,12 +55,17 @@ public class AdminController {
 					
 		}
 
-	    @RequestMapping("/productList/viewproduct/{productId}")
-	    public String viewproduct(@PathVariable int productId, Model model)throws IOException{
-	    	Product product = productDao.getProductById(productId);
-	    	model.addAttribute(product);
+	    @RequestMapping(value="/productList/viewproduct/{productId}",method=RequestMethod.GET)
+	    public String viewproduct(@PathVariable int productId, Model model)
+	    {
+	    	
+			model.addAttribute("ListProduct", productDao.getAllProducts());
+	    	model.addAttribute("product",productDao.getProductById(id));
+	  
 	    	return "viewproduct";
 	    }
+	    
+	
 
 	    @RequestMapping("/admin")
 	    public String adminPage(){
@@ -115,14 +123,30 @@ public class AdminController {
 	    
 	    
 	    @RequestMapping("/admin/productInventory/deleteProduct/{id}")
-	    public String deleteProduct(@PathVariable int id, Model model){
-	    	productDao.deleteProduct(id);
+	    public String deleteProduct(@PathVariable int id, Model model, HttpServletRequest request){
+	    	String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+	    	path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images"+id+".jpg");
+	    	
+	    	if(Files.exists(path)){
+	    		try{
+	    			Files.delete(path);
+	    		} catch(IOException e){
+	    			e.printStackTrace();
+	    		}
+	    	}productDao.deleteProduct(id);
+	    	
 	    	return "redirect:/admin/productInventory";
 	    }
          
 	    @RequestMapping("/admin/productInventory/editProduct/{id}")
 	    public String editProduct(@PathVariable("id") int id, Model model){
 	    	Product product = productDao.getProductById(id);
+	    	product.setProductCondition("New");
+	    	product.setProductStatus("Available");
+	    	List<Category>listcategory = categoryDao.getAllCategory();
+	    	model.addAttribute("listcategory", listcategory);
+	    	List<Supplier>listsupplier= supplierDao.getAllSupplier();
+	    	model.addAttribute("listsupplier", listsupplier);
 	    	model.addAttribute(product);
 	    	return "editProduct";
 	    }
@@ -182,10 +206,22 @@ public class AdminController {
         
 	    @RequestMapping("/admin/categoryInventory/deleteCategory/{cid}")
 	    public String deleteCategory(@PathVariable int cid, Model model){
-	    	supplierDao.deleteSupplier(cid);
+	    	categoryDao.deleteCategory(cid);
 	    	return "redirect:/admin/categoryInventory";
 	    }
-
+         
+	    @RequestMapping("/admin/categoryInventory/editCategory/{cid}")
+	    public String editCategory(@PathVariable("cid") int cid, Model model){
+	    	Category category = categoryDao.getCategoryById(cid);
+	    	model.addAttribute(category);
+	    	return "editCategory";
+	    } 
+	    
+	    @RequestMapping(value="/admin/categoryInventory/editCategory", method = RequestMethod.POST)
+	    public String editCategory(@Valid @ModelAttribute("category")Category category, Model model){
+	    	categoryDao.editCategory(category);
+	    	return "redirect:/admin/categoryInventory";
+	    	}
 
      //supplier controller
 	    
@@ -225,4 +261,17 @@ public class AdminController {
 	    	return "redirect:/admin/supplierInventory";
 	    }
 
+	    @RequestMapping("/admin/supplierInventory/editSupplier/{sid}")
+	    public String editSupplier(@PathVariable("sid") int sid, Model model){
+	    	Supplier supplier = supplierDao.getSupplierById(sid);
+	    	model.addAttribute(supplier);
+	    	return "editSupplier";
+	    } 
+	    
+	    @RequestMapping(value="/admin/supplierInventory/editSupplier", method = RequestMethod.POST)
+	    public String editSupplier( @ModelAttribute("supplier")Supplier supplier, Model model){
+	    	supplierDao.editSupplier(supplier);
+	    	return "redirect:/admin/supplierInventory";
+	    	}
+	    
 	  }

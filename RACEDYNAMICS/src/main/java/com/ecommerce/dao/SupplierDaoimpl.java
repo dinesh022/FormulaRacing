@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ecommerce.model.Product;
 import com.ecommerce.model.Supplier;
 @Repository
 @Transactional
@@ -35,6 +36,15 @@ public class SupplierDaoimpl implements SupplierDao {
 		
 	}
 
+	public void editSupplier(Supplier supplier) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(supplier);
+		session.flush();
+	}
+	
+	
+	
 	@Override
 	public List<Supplier> getAllSupplier() {
 		// TODO Auto-generated method stub

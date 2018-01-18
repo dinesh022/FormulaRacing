@@ -34,7 +34,7 @@ private SessionFactory sessionFactory;
 	
 	@Override
 	public Product getProductById(int id) {
-		// TODO Auto-generated method stub
+		
 		Session session = sessionFactory.getCurrentSession();
 		Product product = (Product) session.get(Product.class,id);
 		return product;
