@@ -38,6 +38,7 @@ public class ProductController {
 	
 
 	
+	
 	@RequestMapping(value="product",method=RequestMethod.GET)
 	public String showProduct(@ModelAttribute("product")Product product ,Model m)
 	{
