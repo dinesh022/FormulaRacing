@@ -192,6 +192,6 @@ public class Address {
 			this.landmark = landmark;
 		}
 		
-		
+//model class		
 		
 }
