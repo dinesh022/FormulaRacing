@@ -33,11 +33,7 @@
 				<td><form:input path="catName"/></td>
 			</tr>
 	
-			<tr>
-				<td>Category Desc</td>
 			
-				<td><form:input path="catDesc"/></td>
-			</tr>
 	
 			<tr>
 				<td colspan="2">
@@ -58,7 +54,7 @@
 			<tr bgcolor="bg-gray">
 				<td>Category ID</td>
 				<td>Category Name</td>
-				<td>Category Description</td>
+				
 				<td>Operation</td>
 			</tr>
 	
@@ -67,7 +63,7 @@
 			<tr bgcolor="#fefbd8">
 				<td>${category.catId}</td>
 				<td>${category.catName}</td>
-				<td>${category.catDesc}</td>
+				
 				<td>
 						<a href="<c:url value="deleteCategory/${category.catId}"/>"><span class="glyphicon glyphicon-remove"></span></a>
 						<a href="<c:url value="editCategory/${category.catId}"/>"><span class="glyphicon glyphicon-pencil"></span></a>
